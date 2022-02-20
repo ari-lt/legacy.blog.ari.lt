@@ -127,6 +127,7 @@ HOME_PAGE_HTML_TEMPLATE = f"""<!DOCTYPE html>
     <h1>My blogs</h1>
     <div style="text-align: center !important;">
         <p>last blog on: <code>%s</code> | latest blog: <a href="%s">%s</a> | <a href="/git">source code</a></p>
+        <hr/>
     </div>
     <div>
 %s
