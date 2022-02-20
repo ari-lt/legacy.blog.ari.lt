@@ -14,25 +14,30 @@ CHARACTER_MAP = {
     " ": "-",
     "?": "_",
     "#": "_",
-    "<": "_",
-    ">": "_",
     "\\": "_",
     "@": "-",
     "&": "-",
     "=": "_",
     "+": "-",
+    "<": "",
+    ">": "",
+    "[": "",
+    "]": "",
+    "(": "",
+    ")": "",
 }
 
 BLOG_MARKDOWN_TEMPLATE = """# %s
 
-%s | [back](..) | [home](/) | [git](/git)
+<div style="text-align: center;">
+    %s | <a href="..">back</a> | <a href="/">home</a> | <a href="/git">git</a>
+</div>
 
 <hr/>
 
 %s"""
 
-HTML_HEADER = """
-<head>
+HTML_HEADER = """<head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -79,8 +84,7 @@ HTML_HEADER = """
             text-decoration: none !important;
             text-shadow: 0px 0px 6px white !important;
         }
-    </style>
-"""
+    </style>"""
 
 BLOG_HTML_TEMPLATE = f"""<!DOCTYPE html>
 <html lang="en">
@@ -102,7 +106,9 @@ HOME_PAGE_HTML_TEMPLATE = f"""<!DOCTYPE html>
 </head>
 <body>
     <h1>My blogs</h1>
-    <code>Last blog on: %s</code> | <span>Latest blog: <a href="%s">%s</a></span>
+    <div style="text-align: center !important;">
+        <p>last blog on: <code>%s</code> | latest blog: <a href="%s">%s</a> | <a href="/git">source code</a></p>
+    </div>
     <div>
 %s
     </div>
@@ -132,6 +138,8 @@ def main() -> int:
     open("/tmp/blog.md", "w", encoding="utf-8").close()
 
     blog_title = input("Blog title: ")
+    blog_title = blog_title[0].upper() + blog_title[1:]
+
     sanitised_blog_title = sanitise_title(blog_title)
 
     input(
@@ -149,12 +157,38 @@ in your blog there. press enter to continue"""
 
     date = subprocess.check_output(["date", "+%F %T %Z"]).decode().rstrip("\n")
     content = BLOG_MARKDOWN_TEMPLATE % (blog_title, date, blog_content)
+    md_extensions = [
+        "markdown.extensions.abbr",
+        "markdown.extensions.def_list",
+        "markdown.extensions.fenced_code",
+        "markdown.extensions.footnotes",
+        "markdown.extensions.md_in_html",
+        "markdown.extensions.tables",
+        "markdown.extensions.admonition",
+        "markdown.extensions.sane_lists",
+        "markdown.extensions.toc",
+        "markdown.extensions.wikilinks",
+        "pymdownx.betterem",
+        "pymdownx.caret",
+        "pymdownx.magiclink",
+        "pymdownx.mark",
+        "pymdownx.tilde",
+    ]
 
     with open(
         f"./blogs/{sanitised_blog_title}.html", "w", encoding="utf-8"
     ) as blog_html:
         blog_html.write(
-            BLOG_HTML_TEMPLATE % (date, blog_title, markdown.markdown(content))
+            BLOG_HTML_TEMPLATE
+            % (
+                date,
+                blog_title,
+                markdown.markdown(
+                    content, output_format="html", extensions=md_extensions
+                )
+                .replace("<h1>", "<h2>")
+                .replace("<h1/>", "<h2/>"),
+            )
         )
 
     with open("./index.md", "a", encoding="utf-8") as home_page_markdown:
@@ -170,7 +204,7 @@ in your blog there. press enter to continue"""
                     date,
                     f"/blogs/{sanitised_blog_title}.html",
                     blog_title,
-                    markdown.markdown(home_page_md.read()),
+                    markdown.markdown(home_page_md.read(), extensions=md_extensions),
                 )
             )
 
