@@ -98,9 +98,11 @@ BLOG_HTML_TEMPLATE = f"""<!DOCTYPE html>
 HOME_PAGE_HTML_TEMPLATE = f"""<!DOCTYPE html>
 <html lang="en">
 {HTML_HEADER}
+    <meta name="description" content="Ari::web -> Blog">
+</head>
 <body>
     <h1>My blogs</h1>
-    <code>Last updated on: %s</code> | <a href="%s">Latest blog: %s</a>
+    <code>Last blog on: %s</code> | <span>Latest blog: <a href="%s">%s</a></span>
     <div>
 %s
     </div>
