@@ -147,9 +147,7 @@ def sanitise_title(title: str) -> str:
     for character, replacement in CHARACTER_MAP.items():
         final = final.replace(character, replacement)
 
-    return (
-        f"{final[0:35]}_{random.randint(-10_000_000_000, 10_000_000_000)}".capitalize()
-    )
+    return f"{final[0:35]}_{random.randint(-10_000_000_000, 10_000_000_000)}".capitalize().strip()
 
 
 def main() -> int:
@@ -157,7 +155,7 @@ def main() -> int:
 
     open("/tmp/blog.md", "w", encoding="utf-8").close()
 
-    blog_title = input("Blog title: ")
+    blog_title = input("Blog title: ").strip()
     blog_title = blog_title[0].upper() + blog_title[1:]
 
     sanitised_blog_title = sanitise_title(blog_title)
