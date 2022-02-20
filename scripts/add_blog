@@ -98,7 +98,7 @@ BLOG_HTML_TEMPLATE = f"""<!DOCTYPE html>
 HOME_PAGE_HTML_TEMPLATE = f"""<!DOCTYPE html>
 <html lang="en">
 {HTML_HEADER}
-    <meta name="description" content="Ari::web -> Blog">
+    <meta name="description" content="My blog page">
 </head>
 <body>
     <h1>My blogs</h1>
