@@ -48,7 +48,7 @@ MD_EXTENSIONS = [
 
 BLOG_MARKDOWN_TEMPLATE = """# %s
 
-<div style="text-align: center;">
+<div style="text-align: center;" aria-hidden="true">
     %s | <a href="..">back</a> | <a href="/">home</a> | <a href="/git">git</a>
 </div>
 
@@ -125,7 +125,7 @@ HOME_PAGE_HTML_TEMPLATE = f"""<!DOCTYPE html>
 </head>
 <body>
     <h1>My blogs</h1>
-    <div style="text-align: center !important;">
+    <div style="text-align: center !important;" aria-hidden="true">
         <p>last blog on: <code>%s</code> | latest blog: <a href="%s">%s</a> | <a href="/git">source code</a></p>
         <hr/>
     </div>
