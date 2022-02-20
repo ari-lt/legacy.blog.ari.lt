@@ -27,6 +27,25 @@ CHARACTER_MAP = {
     ")": "",
 }
 
+MD_EXTENSIONS = [
+    "markdown.extensions.abbr",
+    "markdown.extensions.def_list",
+    "markdown.extensions.fenced_code",
+    "markdown.extensions.footnotes",
+    "markdown.extensions.md_in_html",
+    "markdown.extensions.tables",
+    "markdown.extensions.admonition",
+    "markdown.extensions.sane_lists",
+    "markdown.extensions.toc",
+    "markdown.extensions.wikilinks",
+    "pymdownx.betterem",
+    "pymdownx.caret",
+    "pymdownx.magiclink",
+    "pymdownx.mark",
+    "pymdownx.tilde",
+]
+
+
 BLOG_MARKDOWN_TEMPLATE = """# %s
 
 <div style="text-align: center;">
@@ -157,24 +176,6 @@ in your blog there. press enter to continue"""
 
     date = subprocess.check_output(["date", "+%F %T %Z"]).decode().rstrip("\n")
     content = BLOG_MARKDOWN_TEMPLATE % (blog_title, date, blog_content)
-    md_extensions = [
-        "markdown.extensions.abbr",
-        "markdown.extensions.def_list",
-        "markdown.extensions.fenced_code",
-        "markdown.extensions.footnotes",
-        "markdown.extensions.md_in_html",
-        "markdown.extensions.tables",
-        "markdown.extensions.admonition",
-        "markdown.extensions.sane_lists",
-        "markdown.extensions.toc",
-        "markdown.extensions.wikilinks",
-        "pymdownx.betterem",
-        "pymdownx.caret",
-        "pymdownx.magiclink",
-        "pymdownx.mark",
-        "pymdownx.tilde",
-    ]
-
     with open(
         f"./blogs/{sanitised_blog_title}.html", "w", encoding="utf-8"
     ) as blog_html:
@@ -184,7 +185,7 @@ in your blog there. press enter to continue"""
                 date,
                 blog_title,
                 markdown.markdown(
-                    content, output_format="html", extensions=md_extensions
+                    content, output_format="html", extensions=MD_EXTENSIONS
                 )
                 .replace("<h1>", "<h2>")
                 .replace("<h1/>", "<h2/>"),
@@ -204,7 +205,7 @@ in your blog there. press enter to continue"""
                     date,
                     f"/blogs/{sanitised_blog_title}.html",
                     blog_title,
-                    markdown.markdown(home_page_md.read(), extensions=md_extensions),
+                    markdown.markdown(home_page_md.read(), extensions=MD_EXTENSIONS),
                 )
             )
 
