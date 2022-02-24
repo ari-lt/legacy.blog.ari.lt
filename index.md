@@ -24,3 +24,4 @@
 * [Fast atoi() in C and C++](/blogs/Fast-atoi()-in-c-and-c++_-8139771109.html)
 * [Things I hate about linux](/blogs/Things-i-hate-about-linux_1703323267.html)
 * [New blog design!](/blogs/New-blog-design!_-9192801266.html)
+* [Fuck you, putin](/blogs/Fuck-you,-putin_2008193758.html)
