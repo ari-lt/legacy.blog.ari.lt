@@ -9,6 +9,13 @@ import sys
 import markdown  # type: ignore
 from bs4 import BeautifulSoup as bs  # type: ignore
 
+try:
+    import readline
+except ImportError:
+    readline = 0  # type: ignore
+
+del readline
+
 CHARACTER_MAP = {
     "/": "_",
     " ": "-",
