@@ -27,3 +27,4 @@
 * [Fuck you, putin](/blogs/Fuck-you,-putin_2008193758.html)
 * [Russia's Ukraine-Russia war misinformation](/blogs/Russia's-ukraine-russia-war-misinfo_-981812213.html)
 * [What I use for hosting, maitaining and managing my website](/blogs/What-i-use-for-hosting,-maitaining-_-4875186620.html)
+* [This subdomain is no longer in use](/blogs/This-subdomain-is-no-longer-in-use_-7309129151.html)

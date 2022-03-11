@@ -68,11 +68,11 @@ HTML_HEADER = """<head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ari::web -> Blog</title>
+    <title>Ari::web -> OldBlog</title>
 
-    <meta property="og:site_name" content="Ari::web -> Blog">
+    <meta property="og:site_name" content="Ari::web -> OldBlog">
     <meta property="og:url" content="https://blog.ari-web.xyz/">
-    <meta property="og:title" content="Ari::web -> Blog">
+    <meta property="og:title" content="Ari::web -> OldBlog">
     <meta property="og:type" content="website">
 
     <meta name="theme-color" content="#262220">
@@ -99,10 +99,10 @@ BLOG_HTML_TEMPLATE = f"""<!DOCTYPE html>
 HOME_PAGE_HTML_TEMPLATE = f"""<!DOCTYPE html>
 <html lang="en">
 {HTML_HEADER}
-    <meta name="description" content="My blog page">
+    <meta name="description" content="My old blog page">
 </head>
 <body>
-    <h1>My blogs</h1>
+    <h1>My old blogs (please use <a href="https://blog.ari-web.xyz/">this page</a> instead)</h1>
     <div style="text-align: center !important;" aria-hidden="true">
         <p>last blog on: <code>%s</code> | latest blog: <a href="%s">%s</a> | <a href="/git">source code</a></p>
         <hr/>
