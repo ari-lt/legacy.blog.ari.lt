@@ -1,6 +1,6 @@
 [[redirects]]
     from = "/git/*"
-    to = "https://ari-web.xyz/gh/blog.ari-web.xyz/:splat"
+    to = "https://ari-web.xyz/gh/legacy.blog.ari-web.xyz/:splat"
     status = 301
     force = true
 
