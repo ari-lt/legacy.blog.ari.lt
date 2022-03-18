@@ -24,13 +24,13 @@
 
 [[redirects]]
     from = "/netlify.toml"
-    to = "https://ari-web.xyz/404.files.xyz"
+    to = "https://ari-web.xyz/404.oldblog.xyz"
     status = 404
     force = true
 
 [[redirects]]
     from = "/*"
-    to = "https://ari-web.xyz/404.files.xyz"
+    to = "https://ari-web.xyz/404.oldblog.xyz"
     status = 404
     force = false
 
