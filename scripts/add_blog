@@ -70,9 +70,6 @@ HTML_HEADER = """<head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ari::web -> OldBlog</title>
 
-    <meta property="og:site_name" content="Ari::web -> OldBlog">
-    <meta property="og:url" content="https://blog.ari-web.xyz/">
-    <meta property="og:title" content="Ari::web -> OldBlog">
     <meta property="og:type" content="website">
 
     <meta name="theme-color" content="#262220">
