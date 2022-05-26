@@ -11,6 +11,12 @@
     force = true
 
 [[redirects]]
+    from = "/robots.txt"
+    to = "https://ari-web.xyz/robots.txt"
+    status = 200
+    force = true
+
+[[redirects]]
     from = "/sitemap.xml"
     to = "https://ari-web.xyz/sitemap.xml"
     status = 200
