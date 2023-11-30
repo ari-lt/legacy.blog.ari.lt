@@ -99,7 +99,7 @@ HOME_PAGE_HTML_TEMPLATE = f"""<!DOCTYPE html>
     <meta name="description" content="My old blog page">
 </head>
 <body>
-    <h1>My old blogs (please use <a href="https://blog.ari-web.xyz/">this page</a> instead)</h1>
+    <h1>My old blogs (please use <a href="https://blog.ari.lt/">this page</a> instead)</h1>
     <div style="text-align: center !important;" aria-hidden="true">
         <p>last blog on: <code>%s</code> | latest blog: <a href="%s">%s</a> | <a href="/git">source code</a></p>
         <hr/>
